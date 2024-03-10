@@ -1,11 +1,11 @@
 const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
-    sequelize.define('patches', {
+    sequelize.define('patchs', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     allowNull: false,
-    autoIncrement: true,
+    autoIncrement: true, 
   },
   name: {
     type: DataTypes.STRING(100),
@@ -30,7 +30,12 @@ module.exports = (sequelize) => {
   price: {
     type: DataTypes.INTEGER,
     allowNull: false,
+  
   },
+  discount: {
+    type: DataTypes.INTEGER,
+    allowNull: true,
+  }
 }, {
   timestamps: false, 
 });

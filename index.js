@@ -1,12 +1,11 @@
-
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 3001;
 const { conn } = require("./src/db.js");
 
+app.set("port", 4000);
 
-conn.sync(/* { force: true } */).then(() => {
-app.listen(PORT, () => {
-  console.log(`%s listening at port http://localhost:${PORT}`);
-})
-});
+conn.sync(/* { alter: true } */).then(
+  ()=> {
+    app.listen(app.get("port"));
+  }
+)
