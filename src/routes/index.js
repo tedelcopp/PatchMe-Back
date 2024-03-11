@@ -1,8 +1,16 @@
 // routes/index.js
-const express = require('express');
-const router = express.Router();
+const { Router } = require("express");
+const router = Router();
 const mainController = require('../controllers/mainController');
+const cors = require("cors");
 
-router.get('/', mainController.home);
+router.options("*", cors({ origin: "*", optionsSuccessStatus: 200 }));
+
+router.use(cors({ origin: "*", optionsSuccessStatus: 200 }));
+
+
+
+
+router.get('/home',mainController.home);
 
 module.exports = router;
